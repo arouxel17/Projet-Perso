@@ -1,16 +1,9 @@
-import { useState } from "react";
-
-export default function Counter() {
-  const [count, setCount] = useState(0);
-
+function Counter() {
   return (
-    <p>
-      <button
-        type="button"
-        onClick={() => setCount((oldCount) => oldCount + 1)}
-      >
-        count is: {count}
-      </button>
-    </p>
+    <div>
+      <p>pour le checkpoint4</p>
+    </div>
   );
 }
+
+export default Counter;
