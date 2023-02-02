@@ -75,10 +75,23 @@ const destroy = (req, res) => {
     });
 };
 
+const getCount = (req, res) => {
+  models.spots
+    .findCount()
+    .then((data) => {
+      res.status(200).send(data[0]);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
   edit,
   add,
   destroy,
+  getCount,
 };

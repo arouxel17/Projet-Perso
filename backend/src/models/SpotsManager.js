@@ -33,6 +33,12 @@ class SpotsManager extends AbstractManager {
       ]
     );
   }
+
+  findCount() {
+    return this.connection.query(
+      `SELECT count(id) AS count FROM ${this.table}`
+    );
+  }
 }
 
 module.exports = SpotsManager;

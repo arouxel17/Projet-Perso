@@ -152,7 +152,7 @@ VALUES
 (
   "Les Huttes", 
   "Saint-Denis-d\’Oléron",
-  "Amateur",
+  "Débutant",
   "https://images.pexels.com/photos/1324352/pexels-photo-1324352.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Avec ses plages de sable fin, sa base nautique et son port de plaisance, le site attire les touristes mais également les surfeurs, qui iront chercher la vague vers le spot des Huttes, un beach break parfaitement exposé à la houle. Le site est également fréquenté par les amateurs de plongée, de voile, de stand up paddle et de ski nautique.",
   3
