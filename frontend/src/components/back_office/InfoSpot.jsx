@@ -15,6 +15,15 @@ function InfoSpot() {
       .catch((err) => console.error(err));
   }, []);
 
+  const deleteSpot = (id) => {
+    apiConnexion
+      .delete(`/spots/${id}`, spots)
+      .then((data) => {
+        setSpots(data.spots.id);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="flex flex-row justify-around my-8 mt-10">
       <table className="table-auto">
@@ -52,7 +61,7 @@ function InfoSpot() {
                 </button>
               </td>
               <td className="text-center">
-                <button type="button">
+                <button type="button" onClick={() => deleteSpot(spots.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
