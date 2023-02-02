@@ -6,23 +6,28 @@ import apiConnexion from "@services/apiConnexion";
 function InfoSpot() {
   const [spots, setSpots] = useState([]);
 
-  useEffect(() => {
+  const fullSpot = () => {
     apiConnexion
-      .get("/spots", spots)
+      .get("/spots")
       .then((data) => {
         setSpots(data.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  };
 
   const deleteSpot = (id) => {
     apiConnexion
-      .delete(`/spots/${id}`, spots)
+      .delete(`/spots/${id}`)
       .then((data) => {
-        setSpots(data.spots.id);
+        setSpots(data.spot.id);
       })
       .catch((error) => console.error(error));
   };
+
+  useEffect(() => {
+    fullSpot();
+    deleteSpot();
+  }, []);
 
   return (
     <div className="flex flex-row justify-around my-8 mt-10">
@@ -61,7 +66,7 @@ function InfoSpot() {
                 </button>
               </td>
               <td className="text-center">
-                <button type="button" onClick={() => deleteSpot(spots.id)}>
+                <button type="button" onClick={() => deleteSpot(spot.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

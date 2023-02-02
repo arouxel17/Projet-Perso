@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import apiConnexion from "@services/apiConnexion";
 import Sidebar from "@components/back_office/sidebar";
 import InfoSpot from "@components/back_office/InfoSpot";
+import ModalAdd from "@components/back_office/ModalAdd";
 
 function BackOffice() {
   const [nbJobs, setNbjobs] = useState([]);
-
-  // const [displayModal, setDisplayModal] = useState(false);
+  const [displayModal, setDisplayModal] = useState(false);
 
   const getCount = () => {
     apiConnexion
@@ -20,9 +20,9 @@ function BackOffice() {
   }, []);
 
   return (
-    <div className="flex flex- row bg-primary">
+    <div className="flex flex-row bg-primary">
       <Sidebar />
-      <div className="flex flex-col text-white m-8">
+      <div className="flex flex-col text-white h-screen ml-96 m-8">
         <div className="flex flex-row items-center justify-between mx-24">
           <h1 className="text-2xl font-bold">
             Résultats (<span className="text-secondary">{nbJobs}</span>)
@@ -30,10 +30,11 @@ function BackOffice() {
           <button
             type="button"
             className="bg-secondary text-black text-2xl border-2 border-white rounded-xl px-8 py-4 mx-3 hover:bg-white hover:text-black font-bold"
-            // onClick={setDisplayModal}
+            onClick={setDisplayModal}
           >
-            ADD
+            Ajouter
           </button>
+          {displayModal && <ModalAdd setDisplayModal={setDisplayModal} />}
         </div>
         <div className="">
           <InfoSpot />

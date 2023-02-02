@@ -5,8 +5,8 @@ import logo from "@assets/wave.png";
 export default function Sidebar() {
   return (
     <div className="flex">
-      <div className="flex flex-col h-screen p-3 bg-white shadow">
-        <img src={logo} alt="dessinduo2" className="w-80 mt-0" />
+      <div className="flex flex-col h-full p-3 bg-white fixed">
+        <img src={logo} alt="dessinduo2" className="w-60 mt-0" />
         <div className="space-y-3 pb-12">
           <div className="flex flex-col items-center">
             <ul className="pt-2 pb-4 space-y-6 text-2xl">
