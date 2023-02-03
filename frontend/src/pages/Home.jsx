@@ -5,9 +5,11 @@ import avatar from "../assets/avatar.png";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
-      <NavMini />
-      <div className="flex flex-row">
+    <div className="flex flex-col">
+      <div className="ml-4 md:ml-36">
+        <NavMini />
+      </div>
+      <div className="flex flex-row justify-center">
         <img src={logo} className="w-32 mr-20" alt="logo2" />
         <div className="flex flex-row items-center pr-6">
           <h1 className="mr-4">Hello Julien !</h1>
