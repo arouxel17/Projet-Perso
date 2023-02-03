@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import apiConnexion from "@services/apiConnexion";
 
-/* eslint-disable react/prop-types */
-
 function InfoSpot() {
   const [spots, setSpots] = useState([]);
 
@@ -18,10 +16,10 @@ function InfoSpot() {
   const deleteSpot = (id) => {
     apiConnexion
       .delete(`/spots/${id}`)
-      .then((data) => {
-        setSpots(data.spot.id);
+      .then(() => {
+        fullSpot();
       })
-      .catch((error) => console.error(error));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
