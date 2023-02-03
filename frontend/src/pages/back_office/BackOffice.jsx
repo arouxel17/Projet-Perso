@@ -20,16 +20,16 @@ function BackOffice() {
   }, []);
 
   return (
-    <div className="flex flex-row bg-primary">
+    <div className="flex flex-row bg-primary w-full">
       <Sidebar />
-      <div className="flex flex-col text-white h-screen ml-96 m-8">
-        <div className="flex flex-row items-center justify-between mx-24">
+      <div className="flex flex-col text-white w-full pl-64">
+        <div className="flex flex-row items-center justify-between mt-12 mx-24">
           <h1 className="text-2xl font-bold">
             Résultats (<span className="text-secondary">{nbJobs}</span>)
           </h1>
           <button
             type="button"
-            className="bg-secondary text-black text-2xl border-2 border-white rounded-xl px-8 py-4 mx-3 hover:bg-white hover:text-black font-bold"
+            className="bg-secondary text-black text-2xl border-2 border-white rounded-xl px-6 py-3 mx-3 hover:bg-white hover:text-black font-bold"
             onClick={setDisplayModal}
           >
             Ajouter

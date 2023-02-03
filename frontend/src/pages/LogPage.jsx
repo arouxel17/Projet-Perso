@@ -11,19 +11,19 @@ function LogPage() {
       <video src={VideoBack} autoPlay loop muted id="video" type="video/mp4" />
       <div className="flex flex-col items-center justify-around">
         <img src={Logo} alt="" className="lg:w-80" />
-        <h1 className="flex flex-col font-bold text-secondary text-xl md:text-3xl text-center mb-32 md:mb-72 lg:mb-60">
+        <h1 className="flex flex-col font-bold text-secondary text-xl md:text-3xl text-center mb-32 md:mb-44 lg:mb-60">
           " Vivre pour surfer, surfer pour vivre"<span>Mike Doyle</span>
         </h1>
         <Link to="/accueil">
           <button
             type="button"
-            className="flex flex-row bg-secondary text-white font-bold text-2xl md:text-3xl items-center px-6 py-3 rounded-xl border-2 hover:bg-primary hover:text-white"
+            className="flex flex-row bg-secondary text-black font-bold text-2xl md:text-3xl items-center px-6 py-3 rounded-xl border-2 hover:bg-primary hover:text-white"
           >
-            Let's go
+            Se connecter
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="white"
+              fill="black"
               className="w-6 h-6 ml-6"
             >
               <path
