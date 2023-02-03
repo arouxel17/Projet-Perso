@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import apiConnexion from "@services/apiConnexion";
 import NavMini from "@components/NavMini";
 import NavComputer from "@components/NavComputer";
 import Footer from "@components/FooterComputer";
 import CardDifficulty from "@components/CardDifficulty";
+import Card from "@components/Card";
 import logo from "../assets/wave2.png";
 import avatar from "../assets/avatar.png";
 
 export default function Home() {
   const [difficulty, setDifficulty] = useState([]);
+  const [randomData, setRandomData] = useState([]);
 
   const allDifficulty = () => {
     apiConnexion
@@ -19,12 +22,22 @@ export default function Home() {
       .catch((err) => console.error(err));
   };
 
+  const randomSpot = () => {
+    apiConnexion
+      .get("/spots/rand")
+      .then((data) => {
+        setRandomData(data.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     allDifficulty();
+    randomSpot();
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-24">
       <div className="ml-4 md:ml-36">
         <NavMini />
       </div>
@@ -69,8 +82,8 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div>
-          <h2 className="font-bold mb-3">Difficultées</h2>
+        <div className="mb-10">
+          <h2 className="font-bold mb-5">Difficultées</h2>
           <div className="flex flex-row justify-center">
             {difficulty &&
               difficulty.map((difficulties) => (
@@ -81,6 +94,16 @@ export default function Home() {
               ))}
           </div>
         </div>
+        <div>
+          <h2 className="font-bold mb-5">Venez découvrir nos spots 🌊</h2>
+          {randomData &&
+            randomData.map((spot) => (
+              <Link to={`/spots/${spot.id}`}>
+                <Card key={spot.id} spot={spot} />
+              </Link>
+            ))}
+        </div>
+        <div />
       </div>
       <Footer />
     </div>
