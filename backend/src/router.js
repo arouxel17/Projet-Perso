@@ -7,6 +7,7 @@ const spotsControllers = require("./controllers/spotsControllers");
 router.get("/spots", spotsControllers.browse);
 router.get("/spots/:id", spotsControllers.read);
 router.get("/nbjobs", spotsControllers.getCount);
+router.get("/difficulty", spotsControllers.difficulty);
 router.put("/spots/:id", spotsControllers.edit);
 router.post("/spots", spotsControllers.add);
 router.delete("/spots/:id", spotsControllers.destroy);

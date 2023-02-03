@@ -39,6 +39,12 @@ class SpotsManager extends AbstractManager {
       `SELECT count(id) AS count FROM ${this.table}`
     );
   }
+
+  findDifficulty() {
+    return this.connection.query(
+      `SELECT DISTINCT(difficulte) FROM ${this.table}`
+    );
+  }
 }
 
 module.exports = SpotsManager;
