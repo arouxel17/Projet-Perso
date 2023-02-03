@@ -6,7 +6,6 @@ import NavComputer from "@components/NavComputer";
 import Footer from "@components/FooterComputer";
 import logo from "../assets/wave2.png";
 import avatar from "../assets/avatar.png";
-import test from "../assets/test.jpeg";
 
 function OneSpot() {
   const { id } = useParams();
@@ -63,7 +62,7 @@ function OneSpot() {
         <div className="flex flex-col items-center justify-center text-xl mb-5 lg:m-0 lg:pb-60">
           <div className=" mb-5 md:mb-10 md:text-3xl">{spots.nom} 🌞</div>
           <img
-            src={test}
+            src={spots.image}
             alt="test"
             className="rounded-2xl w-11/12 md:w-8/12 lg:w-8/12 shadow-xl"
           />
