@@ -28,18 +28,18 @@ function InfoSpot() {
   }, []);
 
   return (
-    <div className="flex flex-row justify-around my-8 mt-10">
+    <div className="flex flex-row justify-around my-8 mt-10 pr-6">
       <table className="table-auto">
         <thead>
           <tr className="border-b-2 border-secondary">
-            <th className="text-2xl p-6 px-32">Nom du spot</th>
-            <th className="text-2xl p-6 px-32">Lieu</th>
+            <th className="text-2xl p-6 px-20">Nom</th>
+            <th className="text-2xl p-6 px-20">Lieu</th>
             <th className="text-2xl p-6 px-14">Difficulté</th>
-            <th className="text-2xl p-6 px-14">Modifier</th>
-            <th className="text-2xl p-6 px-14">Supprimer</th>
+            <th className="text-2xl p-6 px-7">Modifier</th>
+            <th className="text-2xl p-6 px-7">Supprimer</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {spots.map((spot) => (
             <tr>
               <td className="text-center text-white py-8">{spot.nom}</td>
