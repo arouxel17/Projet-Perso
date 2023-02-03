@@ -37,7 +37,7 @@ function OneSpot() {
         </div>
       </div>
       <NavComputer />
-      <div className="">
+      <div className="flex flex-col lg:flex-row lg:mt-10">
         <Link to="/spots">
           <button
             type="button"
@@ -59,29 +59,31 @@ function OneSpot() {
             </svg>
           </button>
         </Link>
-        <div className="flex flex-col items-center justify-center text-xl mb-5">
-          <div className=" mb-5 md:mb-10">{spots.nom} 🌞</div>
+        <div className="flex flex-col items-center justify-center text-xl mb-5 lg:m-0 lg:pb-60">
+          <div className=" mb-5 md:mb-10 lg:text-3xl">{spots.nom} 🌞</div>
           <img
             src={test}
             alt="test"
-            className="rounded-2xl w-11/12 md:w-8/12 shadow-xl"
+            className="rounded-2xl w-11/12 md:w-8/12 lg:w-8/12 shadow-xl"
           />
         </div>
-        <div className="mb-32 md:mx-32 text-2xl">
-          <div className="flex flex-row justify-between mx-6 mb-10 border-b-2 border-secondary">
+        <div className="mb-32 md:mx-32 text-2xl lg:m-0 lg:w-11/12 lg:pr-20">
+          <div className="flex flex-row lg:flex-col justify-between mx-6 mb-10 border-b-2 border-secondary">
             <div className="flex flex-col">
-              <h2 className="mb-6">Aperçu</h2>
+              <h2 className="mb-6 font-bold">Aperçu</h2>
               <div className="my-3">Nom du spot : {spots.nom} 🌊</div>
               <div className="my-3">Lieu : {spots.lieu}</div>
             </div>
-            <div className="flex flex-col">
-              <h2 className="mb-6">Difficulté</h2>
+            <div className="flex flex-col lg:flex-row items-center">
+              <h2 className="mb-6 lg:mb-0 lg:mr-6 font-bold">Difficulté</h2>
               <div className="my-3">{spots.difficulte}</div>
             </div>
           </div>
-          <div className="mx-6">
+          <div className="mx-6 font-bold ">
             Description
-            <div className="my-3 text-justify">{spots.description}</div>
+            <div className="my-3 text-justify font-normal">
+              {spots.description}
+            </div>
           </div>
         </div>
       </div>
