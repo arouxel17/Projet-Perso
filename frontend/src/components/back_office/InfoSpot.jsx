@@ -28,7 +28,7 @@ function InfoSpot() {
   }, []);
 
   return (
-    <div className="bg-primary h-screen flex flex-row justify-around my-8 mt-10 pr-6">
+    <div className="bg-primary h-full flex flex-row justify-around my-8 mt-10 pl-4">
       <table className="table-auto">
         <thead>
           <tr className="border-b-2 border-secondary">

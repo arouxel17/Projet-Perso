@@ -3,10 +3,16 @@ import apiConnexion from "@services/apiConnexion";
 
 import "@components/back_office/ModalAdd.css";
 
-/* eslint-disable react/prop-types */
-
 function ModalAdd({ setDisplayModal }) {
   const [spots, setSpots] = useState([]);
+  const [newSpots, setnewSpots] = useState({
+    nom: "",
+    lieu: "",
+    difficulte: "",
+    image: "",
+    description: "",
+    conditions_id: 1,
+  });
 
   const fullSpot = () => {
     apiConnexion
@@ -17,11 +23,17 @@ function ModalAdd({ setDisplayModal }) {
       .catch((err) => console.error(err));
   };
 
+  const handleSpot = (place, value) => {
+    const newSpot = { ...newSpots };
+    newSpot[place] = value;
+    setnewSpots(newSpot);
+  };
+
   const addSpot = () => {
     apiConnexion
-      .post("/spots")
-      .then((data) => {
-        setSpots(data.data);
+      .post("/spots", newSpots)
+      .then(() => {
+        setSpots();
       })
       .catch((err) => console.error(err));
   };
@@ -69,6 +81,7 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Nom"
+                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
                   />
                 </div>
                 <div className="group1">
@@ -77,10 +90,15 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Lieu"
+                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
                   />
                 </div>
                 <div className="group2">
-                  <select required="" className="input w-80 my-7">
+                  <select
+                    required=""
+                    className="input w-80 my-7"
+                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                  >
                     <option value="">Selectionnez une difficulté</option>
                     {spots &&
                       spots.map((spot) => (
@@ -96,6 +114,7 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Image"
+                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
                   />
                 </div>
                 <div className="group4">
@@ -104,10 +123,15 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Description"
+                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
                   />
                 </div>
                 <div className="group5">
-                  <select required="" className="input w-80 my-7">
+                  <select
+                    required=""
+                    className="input w-80 my-7"
+                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                  >
                     <option value="">Selectionnez une condition moyenne</option>
                     {spots &&
                       spots
