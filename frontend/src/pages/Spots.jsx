@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import apiConnexion from "@services/apiConnexion";
 import NavMini from "@components/NavMini";
 import Card from "@components/Card";
@@ -27,9 +28,9 @@ function Spots() {
         <NavMini />
       </div>
       <div className="flex flex-row justify-center">
-        <img src={logo} className="w-32 mr-20" alt="logo2" />
+        <img src={logo} className="w-32 mr-20 md:w-44 md:mr-60" alt="logo2" />
         <div className="flex flex-row items-center pr-6">
-          <h1 className="mr-4">Hello Julien !</h1>
+          <h1 className="mr-4 md:text-3xl">Hello Julien !</h1>
           <img src={avatar} className="w-12 h-12" alt="avatar" />
         </div>
       </div>
@@ -38,7 +39,12 @@ function Spots() {
         <h1 className="text-xl md:text-3xl font-bold">Tri</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-24">
-        {spots && spots.map((spot) => <Card key={spot.id} spot={spot} />)}
+        {spots &&
+          spots.map((spot) => (
+            <Link to={`/spots/${spot.id}`}>
+              <Card key={spot.id} spot={spot} />
+            </Link>
+          ))}
       </div>
     </div>
   );
