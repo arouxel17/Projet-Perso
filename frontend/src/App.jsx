@@ -4,6 +4,7 @@ import BackOffice from "@pages/back_office/BackOffice";
 import Home from "@pages/Home";
 import LogPage from "@pages/LogPage";
 import Spots from "@pages/Spots";
+import OneSpot from "@pages/OneSpot";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<LogPage />} />
         <Route path="/accueil" element={<Home />} />
         <Route path="/spots" element={<Spots />} />
+        <Route path="/spots/:id" element={<OneSpot />} />
       </Routes>
       <Routes>
         <Route path="/dashboard" element={<BackOffice />} />
