@@ -12,6 +12,18 @@ const browse = (req, res) => {
     });
 };
 
+const difficulty = (req, res) => {
+  models.spots
+    .findDifficulty()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const read = (req, res) => {
   models.spots
     .find(req.params.id)
@@ -87,6 +99,18 @@ const getCount = (req, res) => {
     });
 };
 
+const random = (req, res) => {
+  models.spots
+    .rand(3)
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
@@ -94,4 +118,6 @@ module.exports = {
   add,
   destroy,
   getCount,
+  difficulty,
+  random,
 };

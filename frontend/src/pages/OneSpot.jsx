@@ -26,7 +26,7 @@ function OneSpot() {
   }, [id]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-14">
       <div className="ml-4 md:ml-36">
         <NavMini />
       </div>
@@ -61,7 +61,7 @@ function OneSpot() {
           </button>
         </Link>
         <div className="flex flex-col items-center justify-center text-xl mb-5 lg:m-0 lg:pb-60">
-          <div className=" mb-5 md:mb-10 lg:text-3xl">{spots.nom} 🌞</div>
+          <div className=" mb-5 md:mb-10 md:text-3xl">{spots.nom} 🌞</div>
           <img
             src={test}
             alt="test"
@@ -69,14 +69,14 @@ function OneSpot() {
           />
         </div>
         <div className="mb-32 md:mx-32 text-2xl lg:m-0 lg:w-11/12 lg:pr-20">
-          <div className="flex flex-row lg:flex-col justify-between mx-6 mb-10 border-b-2 border-secondary">
-            <div className="flex flex-col">
+          <div className="flex flex-col justify-between mx-6 mb-10 border-b-2 border-secondary">
+            <div className="flex flex-col mb-6">
               <h2 className="mb-6 font-bold">Aperçu</h2>
               <div className="my-3">Nom du spot : {spots.nom} 🌊</div>
               <div className="my-3">Lieu : {spots.lieu}</div>
             </div>
-            <div className="flex flex-col lg:flex-row items-center">
-              <h2 className="mb-6 lg:mb-0 lg:mr-6 font-bold">Difficulté</h2>
+            <div className="flex flex-col">
+              <h2 className="mb-3 lg:mb-0 lg:mr-6 font-bold">Difficulté</h2>
               <div className="my-3">{spots.difficulte}</div>
             </div>
           </div>
