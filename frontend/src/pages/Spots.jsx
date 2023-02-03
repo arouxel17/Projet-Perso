@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import apiConnexion from "@services/apiConnexion";
 import NavMini from "@components/NavMini";
 import NavComputer from "@components/NavComputer";
+import Footer from "@components/FooterComputer";
 import Card from "@components/Card";
 import logo from "../assets/wave2.png";
 import avatar from "../assets/avatar.png";
@@ -48,6 +49,7 @@ function Spots() {
             </Link>
           ))}
       </div>
+      <Footer />
     </div>
   );
 }
