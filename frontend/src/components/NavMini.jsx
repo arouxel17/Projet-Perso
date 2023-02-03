@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavMini() {
   return (
-    <div className="flex flex-row items-center justify-between fixed bottom-0 z-10 bg-primary text-white w-11/12 md:w-8/12 my-3 rounded-2xl p-6 px-12 lg:invisible">
+    <div className="flex flex-row items-center justify-between fixed bottom-0 z-10 bg-primary text-white w-11/12 md:w-8/12 my-3 rounded-2xl p-6 px-12 md:p-8 lg:invisible">
       <Link to="/accueil">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@ function NavMini() {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-8 h-8 hover:scale-150"
+          className="w-8 h-8 md:w-12 md:h-12 hover:scale-150"
         >
           <path
             strokeLinecap="round"
@@ -22,7 +22,7 @@ function NavMini() {
       </Link>
       <Link to="/spots">
         <svg
-          className="w-10 h-10 hover:scale-150"
+          className="w-10 h-10 hover:scale-150 md:w-12 md:h-12"
           viewBox="0 0 24 24"
           fill="white"
           xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ function NavMini() {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-8 h-8 hover:scale-150"
+          className="w-8 h-8 hover:scale-150 md:w-12 md:h-12"
         >
           <path
             strokeLinecap="round"
