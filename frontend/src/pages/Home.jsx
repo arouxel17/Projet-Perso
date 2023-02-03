@@ -1,6 +1,7 @@
 import React from "react";
 import NavMini from "@components/NavMini";
 import NavComputer from "@components/NavComputer";
+import Footer from "@components/FooterComputer";
 import logo from "../assets/wave2.png";
 import avatar from "../assets/avatar.png";
 
@@ -52,6 +53,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
