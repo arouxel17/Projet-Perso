@@ -5,7 +5,7 @@ import avatar from "../assets/avatar.png";
 
 function NavComputer() {
   return (
-    <div className="invisible lg:visible border-b-4 border-primary fixed top-0 z-10 w-full h-40">
+    <div className="invisible lg:visible bg-white border-b-4 border-primary fixed top-0 z-10 w-full h-40">
       <div className="flex flex-row justify-between items-center mx-20">
         <img src={logo} className="w-36" alt="logo2" />
         <Link to="/accueil">

@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       </div>
       <NavComputer />
-      <div className="flex flex-col mx-6">
+      <div className="flex flex-col mx-6 lg:mt-10">
         <h1 className="mr-12 mb-3">
           Trouvez les spots de surf où que vous soyez en Charente-Maritime 🌞
         </h1>
