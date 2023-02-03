@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import apiConnexion from "@services/apiConnexion";
 import NavMini from "@components/NavMini";
 import NavComputer from "@components/NavComputer";
 import Footer from "@components/FooterComputer";
+import CardDifficulty from "@components/CardDifficulty";
 import logo from "../assets/wave2.png";
 import avatar from "../assets/avatar.png";
 
 export default function Home() {
+  const [difficulty, setDifficulty] = useState([]);
+
+  const allDifficulty = () => {
+    apiConnexion
+      .get("/difficulty")
+      .then((data) => {
+        setDifficulty(data.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    allDifficulty();
+  }, []);
+
   return (
     <div className="flex flex-col">
       <div className="ml-4 md:ml-36">
@@ -50,6 +67,18 @@ export default function Home() {
                 />
               </svg>
             </span>
+          </div>
+        </div>
+        <div>
+          <h2 className="font-bold mb-3">Difficultées</h2>
+          <div className="flex flex-row justify-center">
+            {difficulty &&
+              difficulty.map((difficulties) => (
+                <CardDifficulty
+                  key={difficulties.id}
+                  difficulties={difficulties}
+                />
+              ))}
           </div>
         </div>
       </div>
