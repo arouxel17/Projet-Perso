@@ -99,6 +99,18 @@ const getCount = (req, res) => {
     });
 };
 
+const random = (req, res) => {
+  models.spots
+    .rand(3)
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
@@ -107,4 +119,5 @@ module.exports = {
   destroy,
   getCount,
   difficulty,
+  random,
 };

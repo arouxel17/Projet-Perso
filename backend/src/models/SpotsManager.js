@@ -45,6 +45,13 @@ class SpotsManager extends AbstractManager {
       `SELECT DISTINCT(difficulte) FROM ${this.table}`
     );
   }
+
+  rand(number) {
+    return this.connection.query(
+      `select * from  ${this.table} ORDER BY rand() LIMIT ?`,
+      [number]
+    );
+  }
 }
 
 module.exports = SpotsManager;

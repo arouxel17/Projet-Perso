@@ -5,6 +5,7 @@ const router = express.Router();
 const spotsControllers = require("./controllers/spotsControllers");
 
 router.get("/spots", spotsControllers.browse);
+router.get("/spots/rand", spotsControllers.random);
 router.get("/spots/:id", spotsControllers.read);
 router.get("/nbjobs", spotsControllers.getCount);
 router.get("/difficulty", spotsControllers.difficulty);
