@@ -51,7 +51,7 @@ function BackOffice() {
   }, []);
 
   return (
-    <div className="flex flex-row bg-primary w-full">
+    <div className="flex flex-row bg-primary h-screen w-full">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Wave - Dashboard 🌊 </title>
@@ -73,7 +73,7 @@ function BackOffice() {
           </button>
           {displayModal && <Modal onClose={onModalClose} />}
         </div>
-        <div className="">
+        <div className="bg-primary">
           <InfoSpot spots={spots} deleteSpot={deleteSpot} />
         </div>
       </div>
