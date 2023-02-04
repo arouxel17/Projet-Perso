@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import apiConnexion from "@services/apiConnexion";
 import NavMini from "@components/NavMini";
 import NavComputer from "@components/NavComputer";
@@ -38,6 +39,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col mb-32 md:mb-36">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Wave - Accueil 🌊 </title>
+        <meta name="description" content="Page d'accueil Wave 🌊" />
+        <link rel="icon" type="image/png" href={logo} />
+      </Helmet>
       <div className="ml-4 md:ml-36">
         <NavMini />
       </div>
