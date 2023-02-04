@@ -1,13 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Logo from "@assets/wave.png";
 import VideoBack from "@assets/bgsurf.mp4";
+import logo from "../assets/wave2.png";
 
 import "@pages/LogPage.css";
 
 function LogPage() {
   return (
     <div className="">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Wave - Se connecter 🌊 </title>
+        <meta name="description" content="Page de connexion 🌊" />
+        <link rel="icon" type="image/png" href={logo} />
+      </Helmet>
       <video src={VideoBack} autoPlay loop muted id="video" type="video/mp4" />
       <div className="flex flex-col items-center justify-around">
         <img src={Logo} alt="" className="lg:w-80" />

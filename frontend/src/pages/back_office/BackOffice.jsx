@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import apiConnexion from "@services/apiConnexion";
 import Sidebar from "@components/back_office/sidebar";
 import InfoSpot from "@components/back_office/InfoSpot";
 import ModalAdd from "@components/back_office/ModalAdd";
+import logo from "@assets/wave2.png";
 
 function BackOffice() {
   const [nbJobs, setNbjobs] = useState([]);
@@ -21,6 +23,12 @@ function BackOffice() {
 
   return (
     <div className="flex flex-row bg-primary w-full">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Wave - Dashboard 🌊 </title>
+        <meta name="description" content="Un seul spot 🌊" />
+        <link rel="icon" type="image/png" href={logo} />
+      </Helmet>
       <Sidebar />
       <div className="flex flex-col text-white w-full pl-64">
         <div className="flex flex-row items-center justify-between mt-12 mx-24">

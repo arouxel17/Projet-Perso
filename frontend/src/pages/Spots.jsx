@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import apiConnexion from "@services/apiConnexion";
 import NavMini from "@components/NavMini";
 import NavComputer from "@components/NavComputer";
@@ -26,6 +27,12 @@ function Spots() {
 
   return (
     <div className="flex flex-col text-black">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Wave - Trouvez votre spot ! 🌊 </title>
+        <meta name="description" content="Tous les spots 🌊" />
+        <link rel="icon" type="image/png" href={logo} />
+      </Helmet>
       <div className="ml-4 md:ml-36">
         <NavMini />
       </div>
