@@ -52,6 +52,14 @@ class SpotsManager extends AbstractManager {
       [number]
     );
   }
+
+  findSpotsConditions(id) {
+    return this.connection.query(
+      `SELECT s.id, s.nom, s.lieu, s.difficulte, s.image, s.description, c.vagues, c.houles, c.periodes FROM  ${this.table} AS s 
+    INNER JOIN conditions AS c ON c.id=s.conditions_id WHERE s.id = ?`,
+      [id, 1]
+    );
+  }
 }
 
 module.exports = SpotsManager;
