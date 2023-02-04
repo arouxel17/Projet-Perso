@@ -37,7 +37,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col mb-24">
+    <div className="flex flex-col mb-32 md:mb-36">
       <div className="ml-4 md:ml-36">
         <NavMini />
       </div>
@@ -49,15 +49,15 @@ export default function Home() {
         </div>
       </div>
       <NavComputer />
-      <div className="flex flex-col mx-6 lg:mt-10">
-        <h1 className="mr-12 mb-3">
+      <div className="flex flex-col mx-6 lg:mt-10 md:mx-24">
+        <h1 className="mr-12 mb-3 md:text-2xl lg:text-3xl lg:text-center md:mx-20">
           Trouvez les spots de surf où que vous soyez en Charente-Maritime 🌞
         </h1>
-        <div className="my-3">
+        <div className="my-3 md:mx-32 lg:mx-60 lg:my-12">
           <div className="flex flex-row w-full mb-4">
             <input
               type="search"
-              className="w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding drop-shadow-xl border border-solid border-gray-300 rounded-xl focus:text-gray-700 focus:border-primary focus:outline-none"
+              className="w-full px-3 py-1.5 text-base md:text-2xl font-normal text-gray-700 bg-white bg-clip-padding drop-shadow-xl border border-solid border-gray-300 rounded-xl focus:text-gray-700 focus:border-primary focus:outline-none"
               placeholder="Entrez votre spot"
             />
             <span
@@ -82,7 +82,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="mb-10">
+        <div className="mb-14 md:text-2xl md:mx-20 lg:mx-24 md:mb-20">
           <h2 className="font-bold mb-5">Difficultées</h2>
           <div className="flex flex-row justify-center">
             {difficulty &&
@@ -94,14 +94,18 @@ export default function Home() {
               ))}
           </div>
         </div>
-        <div>
-          <h2 className="font-bold mb-5">Venez découvrir nos spots 🌊</h2>
-          {randomData &&
-            randomData.map((spot) => (
-              <Link to={`/spots/${spot.id}`}>
-                <Card key={spot.id} spot={spot} />
-              </Link>
-            ))}
+        <div className="-m-6">
+          <h2 className="font-bold mb-5 mx-6 md:text-2xl md:mx-28">
+            Venez découvrir nos spots 🌊
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3">
+            {randomData &&
+              randomData.map((spot) => (
+                <Link to={`/spots/${spot.id}`}>
+                  <Card key={spot.id} spot={spot} />
+                </Link>
+              ))}
+          </div>
         </div>
         <div />
       </div>
