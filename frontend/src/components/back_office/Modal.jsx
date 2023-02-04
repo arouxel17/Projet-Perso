@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import apiConnexion from "@services/apiConnexion";
 
-import "@components/back_office/ModalAdd.css";
+import "@components/back_office/Modal.css";
 
-function ModalAdd({ onClose }) {
+function Modal({ onClose }) {
   const [conditions, setConditions] = useState([]);
   const [newSpots, setnewSpots] = useState({
     nom: "",
@@ -155,4 +155,4 @@ function ModalAdd({ onClose }) {
   );
 }
 
-export default ModalAdd;
+export default Modal;

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import apiConnexion from "@services/apiConnexion";
 import Sidebar from "@components/back_office/sidebar";
 import InfoSpot from "@components/back_office/InfoSpot";
-import ModalAdd from "@components/back_office/ModalAdd";
+import Modal from "@components/back_office/Modal";
 import logo from "@assets/wave2.png";
 
 function BackOffice() {
@@ -71,7 +71,7 @@ function BackOffice() {
           >
             Ajouter
           </button>
-          {displayModal && <ModalAdd onClose={onModalClose} />}
+          {displayModal && <Modal onClose={onModalClose} />}
         </div>
         <div className="">
           <InfoSpot spots={spots} deleteSpot={deleteSpot} />
