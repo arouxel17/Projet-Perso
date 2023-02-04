@@ -1,32 +1,6 @@
-import React, { useEffect, useState } from "react";
-import apiConnexion from "@services/apiConnexion";
+import React from "react";
 
-function InfoSpot() {
-  const [spots, setSpots] = useState([]);
-
-  const fullSpot = () => {
-    apiConnexion
-      .get("/spots")
-      .then((data) => {
-        setSpots(data.data);
-      })
-      .catch((err) => console.error(err));
-  };
-
-  const deleteSpot = (id) => {
-    apiConnexion
-      .delete(`/spots/${id}`)
-      .then(() => {
-        fullSpot();
-      })
-      .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    fullSpot();
-    deleteSpot();
-  }, []);
-
+function InfoSpot({ spots, deleteSpot }) {
   return (
     <div className="bg-primary h-full flex flex-row justify-around my-8 mt-10 pl-4">
       <table className="table-auto">
