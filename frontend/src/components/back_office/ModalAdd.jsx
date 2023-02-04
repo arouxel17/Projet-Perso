@@ -1,46 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import apiConnexion from "@services/apiConnexion";
 
 import "@components/back_office/ModalAdd.css";
 
-function ModalAdd({ setDisplayModal }) {
-  const [spots, setSpots] = useState([]);
+function ModalAdd({ onClose }) {
+  const [conditions, setConditions] = useState([]);
   const [newSpots, setnewSpots] = useState({
     nom: "",
     lieu: "",
     difficulte: "",
     image: "",
     description: "",
-    conditions_id: 1,
+    conditions_id: 0,
   });
 
-  const fullSpot = () => {
+  const getConditions = () => {
     apiConnexion
-      .get("/spots")
+      .get("/conditions")
       .then((data) => {
-        setSpots(data.data);
+        setConditions(data.data);
       })
       .catch((err) => console.error(err));
   };
 
-  const handleSpot = (place, value) => {
+  const handleSpot = (e) => {
     const newSpot = { ...newSpots };
-    newSpot[place] = value;
+    newSpot[e.target.name] = e.target.value;
     setnewSpots(newSpot);
   };
 
   const addSpot = () => {
     apiConnexion
       .post("/spots", newSpots)
-      .then(() => {
-        setSpots();
-      })
+      .then(() => onClose())
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    fullSpot();
-    addSpot();
+    getConditions();
   }, []);
 
   return (
@@ -49,13 +46,7 @@ function ModalAdd({ setDisplayModal }) {
         <div className="flex flex-col items-center w-full pt-6 gap-y-7">
           <div className="overflow-hidden rounded-lg bg-white shadow-3xl transition-all max-w-lg mx-5">
             <div className="flex flex-col items-center text-black font-bold p-8 mx-32">
-              <button
-                type="button"
-                className="pr-96 mb-4"
-                onClick={() => {
-                  setDisplayModal(false);
-                }}
-              >
+              <button type="button" className="pr-96 mb-4" onClick={onClose}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -81,7 +72,8 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Nom"
-                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                    name="nom"
+                    onChange={handleSpot}
                   />
                 </div>
                 <div className="group1">
@@ -90,22 +82,21 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Lieu"
-                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                    name="lieu"
+                    onChange={handleSpot}
                   />
                 </div>
                 <div className="group2">
                   <select
                     required=""
                     className="input w-80 my-7"
-                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                    name="difficulte"
+                    onChange={handleSpot}
                   >
                     <option value="">Selectionnez une difficulté</option>
-                    {spots &&
-                      spots.map((spot) => (
-                        <option value={spot.spots} key={spot.spots}>
-                          {spot.difficulte}
-                        </option>
-                      ))}
+                    <option value="debutant">Débutant</option>
+                    <option value="intermediaire">Intermédiaire</option>
+                    <option value="expert">Expert</option>
                   </select>
                 </div>
                 <div className="group3">
@@ -114,7 +105,8 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Image"
-                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                    name="image"
+                    onChange={handleSpot}
                   />
                 </div>
                 <div className="group4">
@@ -123,35 +115,34 @@ function ModalAdd({ setDisplayModal }) {
                     type="text"
                     className="input w-80 my-7"
                     placeholder="Description"
-                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                    name="description"
+                    onChange={handleSpot}
                   />
                 </div>
                 <div className="group5">
                   <select
                     required=""
                     className="input w-80 my-7"
-                    onChange={(e) => handleSpot(e.target.name, e.target.value)}
+                    name="conditions_id"
+                    onChange={handleSpot}
                   >
-                    <option value="">Selectionnez une condition moyenne</option>
-                    {spots &&
-                      spots
-                        //   .filter(spot =>)
-                        .map((spot) => (
-                          <option value={spot.spots} key={spot.spots}>
-                            {spot.conditions_id}
-                          </option>
-                        ))}
+                    <option value="0">
+                      Selectionnez une condition moyenne
+                    </option>
+                    {conditions &&
+                      conditions.map((condi) => (
+                        <option value={condi.id} key={condi.id}>
+                          Vagues : {condi.vagues}, Houle : {condi.houles},
+                          Période : {condi.periodes}
+                        </option>
+                      ))}
                   </select>
                 </div>
               </div>
-
               <button
                 type="button"
                 className="createbutton mt-6"
-                onClick={() => {
-                  setDisplayModal(false);
-                  addSpot();
-                }}
+                onClick={() => addSpot()}
               >
                 <span />
                 Créer

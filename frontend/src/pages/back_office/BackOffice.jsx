@@ -7,8 +7,18 @@ import ModalAdd from "@components/back_office/ModalAdd";
 import logo from "@assets/wave2.png";
 
 function BackOffice() {
+  const [spots, setSpots] = useState([]);
   const [nbJobs, setNbjobs] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
+
+  const fullSpot = () => {
+    apiConnexion
+      .get("/spots")
+      .then((data) => {
+        setSpots(data.data);
+      })
+      .catch((err) => console.error(err));
+  };
 
   const getCount = () => {
     apiConnexion
@@ -17,8 +27,27 @@ function BackOffice() {
       .catch((error) => console.error(error));
   };
 
-  useEffect(() => {
+  const refresh = () => {
+    fullSpot();
     getCount();
+  };
+
+  const deleteSpot = (id) => {
+    apiConnexion
+      .delete(`/spots/${id}`)
+      .then(() => {
+        refresh();
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const onModalClose = () => {
+    setDisplayModal(false);
+    refresh();
+  };
+
+  useEffect(() => {
+    refresh();
   }, []);
 
   return (
@@ -38,14 +67,14 @@ function BackOffice() {
           <button
             type="button"
             className="bg-secondary text-black text-2xl border-2 border-white rounded-xl px-6 py-3 mx-3 hover:bg-white hover:text-black font-bold"
-            onClick={setDisplayModal}
+            onClick={() => setDisplayModal(true)}
           >
             Ajouter
           </button>
-          {displayModal && <ModalAdd setDisplayModal={setDisplayModal} />}
+          {displayModal && <ModalAdd onClose={onModalClose} />}
         </div>
         <div className="">
-          <InfoSpot />
+          <InfoSpot spots={spots} deleteSpot={deleteSpot} />
         </div>
       </div>
     </div>
