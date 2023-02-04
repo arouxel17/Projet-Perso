@@ -12,4 +12,4 @@ const browse = (req, res) => {
     });
 };
 
-module.exports = {browse}
+module.exports = { browse };

@@ -5,4 +5,4 @@ class ConditionsManager extends AbstractManager {
     super({ table: "conditions" });
   }
 }
-  module.exports = ConditionsManager;
+module.exports = ConditionsManager;
