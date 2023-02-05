@@ -26,7 +26,7 @@ const difficulty = (req, res) => {
 
 const read = (req, res) => {
   models.spots
-    .find(req.params.id)
+    .findSpotsConditions(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);

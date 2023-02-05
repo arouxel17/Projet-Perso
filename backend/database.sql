@@ -96,7 +96,7 @@ VALUES
 (
   "Les Grenettes", 
   "Sainte-Marie-De-Ré",
-  "Débutant",
+  "Debutant",
   "https://images.pexels.com/photos/416726/pexels-photo-416726.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "A proximité de La Rochelle, le spot des Grenettes, sur le hameau de La Noue à l\’ouest de Sainte-Marie-de-Ré, est particulièrement fréquenté. Face aux falaises et à la petite plage accessible lorsque la marée l\’accorde, les vagues généralement molles et parfois creuses peuvent atteindre 2,50 mètres de hauteur. Un spot qui intéresse également par la qualité de l\’eau mais qui exige une certaine dextérité, rochers et caillasses pouvant représenter un danger.",
   1
@@ -120,7 +120,7 @@ VALUES
 (
   "La côte Sauvage", 
   "La Tremblade",
-  "Intermédiaire",
+  "Intermediaire",
   "https://images.pexels.com/photos/1644724/pexels-photo-1644724.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Direction La Tremblade, sur la côte ouest de la presqu\’île d\’Arvert, la côte sauvage est un véritable paradis pour les surfeurs. Avec ses longues étendues de sable, ses dunes et ses pinèdes, le site est parfaitement exposé à la houle et à l\’assaut des vagues de l\’Atlantique. Logée entre la Pointe Espagnole au nord et la pointe de la Coubre au sud, la côte sauvage est incontournable pour tous les amateurs de sensations fortes.",
   5
@@ -128,7 +128,7 @@ VALUES
 (
   "Vert Bois", 
   "Saint-Trojan",
-  "Débutant",
+  "Debutant",
   "https://images.pexels.com/photos/1654489/pexels-photo-1654489.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Dans le sud-ouest de l\’île d\’Oléron, au pied de la forêt de Saint-Trojan installée au XIXe siècle pour contenir l\’avancée des dunes, la petite commune du Grand-Village-Plage voit elle aussi défiler les surfeurs. Entre Vert Bois et la plage de Grand-Village, les amateurs de sensations fortes peuvent même venir se frotter à la vague mythique des Allassins. Un spot réputé et incontournable qui attire aussi les passionnés de char à voile et de skimboard.",
   2
@@ -136,7 +136,7 @@ VALUES
 (
   "Le phare de Chassiron", 
   "Saint-Denis-d\’Oléron",
-  "Intermédiaire",
+  "Intermediaire",
   "https://images.pexels.com/photos/2062141/pexels-photo-2062141.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Jadis, le site était redouté par les marins, tant les récifs sont dangereux et les naufrages nombreux. Pour guider les navigateurs et pénétrer dans les eaux du pertuis d\’Antioche sans encombre, un phare a ainsi dû être construit en 1685. Situé à l\’extrémité nord de l\’île d\’Oléron, près de Saint-Denis-d\’Oléron, le spot fait aujourd\’hui le bonheur des surfeurs qui, entre deux vagues, pourront même aller se divertir dans la tour, le musée et les jardins du phare.",
   4
@@ -144,7 +144,7 @@ VALUES
 (
   "Les Boulassiers", 
   "La Brée-les-Bains",
-  "Intermédiaire",
+  "Intermediaire",
   "https://images.pexels.com/photos/1722028/pexels-photo-1722028.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Bien qu\’il ne soit pas parfaitement orienté, puisque opposé à l\’océan Atlantique, le site des Boulassiers est en bonne place sur tous les guides destinés aux surfeurs. Considéré comme un spot de repli, il intéresse par l\’enroulement des fortes houles d\’automne. A défaut, les sportifs pourront toujours aller faire une petite visite à l\’église Notre-Dame de l\’Assomption ou au moulin de La Fontaine, dont la construction date du XVe siècle.",
   5
@@ -152,7 +152,7 @@ VALUES
 (
   "Les Huttes", 
   "Saint-Denis-d\’Oléron",
-  "Débutant",
+  "Debutant",
   "https://images.pexels.com/photos/1324352/pexels-photo-1324352.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Avec ses plages de sable fin, sa base nautique et son port de plaisance, le site attire les touristes mais également les surfeurs, qui iront chercher la vague vers le spot des Huttes, un beach break parfaitement exposé à la houle. Le site est également fréquenté par les amateurs de plongée, de voile, de stand up paddle et de ski nautique.",
   3
