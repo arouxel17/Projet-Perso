@@ -59,7 +59,13 @@ function Spots() {
       </div>
       <NavComputer />
       <div className="flex flex-row justify-between items-center mx-10 mb-6 md:mx-10 lg:mt-10 lg:mx-10">
-        <h1 className="text-xl md:text-3xl font-bold">Tous les spots</h1>
+        <button
+          type="button"
+          className="text-xl md:text-3xl font-bold hover:scale-125"
+          onClick={() => handleCategory("")}
+        >
+          Tous les spots
+        </button>
         <div className="text-right">
           <div className="flex flex-row items-center">
             <button
