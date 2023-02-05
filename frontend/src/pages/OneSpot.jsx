@@ -26,7 +26,7 @@ function OneSpot() {
   }, [id]);
 
   return (
-    <div className="flex flex-col mb-14">
+    <div className="flex flex-col">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Wave - Description du spot 🌊 </title>
@@ -48,7 +48,7 @@ function OneSpot() {
         <Link to="/spots">
           <button
             type="button"
-            className="flex items-center ml-4 border-2 border-secondary hover:bg-secondary rounded-xl p-2 md:ml-16"
+            className="flex items-center ml-4 border-2 border-secondary hover:bg-secondary rounded-xl p-2 md:ml-16 absolute"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,33 +66,41 @@ function OneSpot() {
             </svg>
           </button>
         </Link>
-        <div className="flex flex-col items-center justify-center text-xl mb-5 lg:m-0 lg:pb-60">
-          <div className=" mb-5 md:mb-10 md:text-3xl">{spots.nom} 🌞</div>
+        <div className="flex flex-col items-center justify-center text-xl mb-5">
+          <div className="mt-5 mb-5 md:mb-10 md:text-3xl">{spots.nom} 🌞</div>
           <img
             src={spots.image}
             alt="test"
-            className="rounded-2xl w-11/12 md:w-8/12 lg:w-8/12 shadow-xl"
+            className="rounded-2xl w-11/12 md:w-9/12 lg:w-8/12 shadow-xl"
           />
         </div>
-        <div className="mb-32 md:mx-32 text-2xl lg:m-0 lg:w-11/12 lg:pr-20">
-          <div className="flex flex-col justify-between mx-6 mb-10 border-b-2 border-secondary">
+        <div className="mb-14 md:mx-20 text-xl md:text-2xl lg:m-0 lg:w-11/12 lg:pr-20 lg:mb-0 lg:mt-10">
+          <div className="flex flex-col justify-between mx-6 border-b-4 border-secondary">
             <div className="flex flex-col mb-6">
-              <h2 className="mb-6 font-bold">Aperçu</h2>
+              <h2 className="font-bold">Aperçu</h2>
               <div className="my-3">Nom du spot : {spots.nom} 🌊</div>
               <div className="my-3">Lieu : {spots.lieu}</div>
             </div>
-            <div className="flex flex-col">
-              <h2 className="mb-3 lg:mb-0 lg:mr-6 font-bold">Difficulté</h2>
-              <div className="my-3">{spots.difficulte}</div>
-            </div>
-          </div>
-          <div className="mx-6 font-bold ">
-            Description
-            <div className="my-3 text-justify font-normal">
-              {spots.description}
+            <div className="flex flex-row justify-between">
+              <div className="flex flex-col">
+                <h2 className="lg:mb-0 lg:mr-6 font-bold">Difficulté</h2>
+                <div className="my-3">{spots.difficulte}</div>
+              </div>
+              <div className="flex flex-col text-right">
+                <h2 className="lg:mb-0 lg:mr-6 font-bold">
+                  Conditions moyennes
+                </h2>
+                <div className="mt-3">Vagues : {spots.vagues} 🌊</div>
+                <div className="my-3">Houle : {spots.houles} 🔵</div>
+                <div className="my-1 mb-6">Période : {spots.periodes} 🧭</div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="mx-6 font-bold mb-32 md:mx-20 text-xl md:text-2xl lg:mt-6 lg:mx-60">
+        Description
+        <div className="my-3 text-justify font-normal">{spots.description}</div>
       </div>
       <Footer />
     </div>
