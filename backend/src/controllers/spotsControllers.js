@@ -11,6 +11,17 @@ const browse = (req, res) => {
       res.sendStatus(500);
     });
 };
+const dataHome = (req, res) => {
+  models.spots
+    .findHome()
+    .then(([rows]) => {
+      res.send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
 
 const difficulty = (req, res) => {
   models.spots
@@ -113,6 +124,7 @@ const random = (req, res) => {
 
 module.exports = {
   browse,
+  dataHome,
   read,
   edit,
   add,

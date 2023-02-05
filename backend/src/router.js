@@ -9,6 +9,7 @@ router.get("/spots", spotsControllers.browse);
 router.get("/spots/rand", spotsControllers.random);
 router.get("/spots/:id", spotsControllers.read);
 router.get("/nbjobs", spotsControllers.getCount);
+router.get("/homedata", spotsControllers.dataHome);
 router.get("/difficulty", spotsControllers.difficulty);
 router.get("/conditions", conditionsControllers.browse);
 router.put("/spots/:id", spotsControllers.edit);
