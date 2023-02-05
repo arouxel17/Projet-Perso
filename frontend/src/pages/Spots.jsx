@@ -17,11 +17,12 @@ function Spots() {
   const [difficulty, setDifficulty] = useState(searchParams.get("difficulte"));
   const handleCategory = (dif) => {
     if (dif) {
-      setSearchParams({ difficulty: dif });
+      setSearchParams({ difficulte: dif });
     } else {
       setSearchParams();
     }
     setDifficulty(dif);
+    setShowMenu(false);
   };
 
   const fullSpot = () => {
@@ -88,21 +89,21 @@ function Spots() {
               <button
                 type="button"
                 className="my-3 hover:scale-125 font-bold hover:text-primary text-right"
-                onClick={() => handleCategory("debutant")}
+                onClick={() => handleCategory("Debutant")}
               >
                 Débutant
               </button>
               <button
                 type="button"
                 className="my-3 md:my-10 hover:scale-125 font-bold hover:text-primary text-right"
-                onClick={() => handleCategory("intermediaire")}
+                onClick={() => handleCategory("Intermediaire")}
               >
                 Intermédiaire
               </button>
               <button
                 type="button"
                 className="my-3 hover:scale-125 font-bold hover:text-primary text-right"
-                onClick={() => handleCategory("expert")}
+                onClick={() => handleCategory("Expert")}
               >
                 Expert
               </button>
