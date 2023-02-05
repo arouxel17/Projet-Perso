@@ -67,7 +67,7 @@ function Spots() {
           Tous les spots
         </button>
         <div className="text-right">
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center hover:scale-125">
             <button
               type="button"
               onClick={() => setShowMenu(!showMenu)}

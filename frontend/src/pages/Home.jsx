@@ -135,7 +135,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mb-14 md:text-2xl md:mx-20 lg:mx-24 md:mb-20">
+        <div className="mb-14 md:text-2xl md:mx-20 lg:mx-24 md:mb-20 md:mb-32">
           <h2 className="font-bold mb-5">Difficultées</h2>
           <div className="flex flex-row justify-center">
             {difficulty &&
@@ -149,11 +149,11 @@ export default function Home() {
               ))}
           </div>
         </div>
-        <div className="-m-6">
+        <div className="-m-6 md:-m-14 md:mb-4  md:mb-0">
           <h2 className="font-bold mb-5 mx-6 md:text-2xl md:mx-28">
             Venez découvrir nos spots 🌊
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {randomData &&
               randomData.map((spot) => (
                 <Link to={`/spots/${spot.id}`}>
