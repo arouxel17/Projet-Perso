@@ -104,7 +104,7 @@ VALUES
 (
   "La pointe du Lizay", 
   "Les Portes-en-Ré",
-  "Expert",
+  "Intermediaire",
   "https://images.pexels.com/photos/2050955/pexels-photo-2050955.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "A l\’extrémité nord de l\’île de Ré, la pointe du Lizay est certainement le spot le plus puissant de l\’île, avec des vagues pouvant atteindre 150 mètres de long et 2,50 mètres de hauteur. Tout comme Diamond Head et le petit Bec, le site fait partie de la Conche des Baleines, cette grande baie délimitée à l\’est par la pointe du Lizay et à l\’ouest par la pointe des Baleines. Un spot prisé pour ses plages bordées par des dunes, une forêt de pins maritimes et quelques vestiges du Mur de l\’Atlantique.",
   7
@@ -120,7 +120,7 @@ VALUES
 (
   "La côte Sauvage", 
   "La Tremblade",
-  "Intermediaire",
+  "Expert",
   "https://images.pexels.com/photos/1644724/pexels-photo-1644724.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Direction La Tremblade, sur la côte ouest de la presqu\’île d\’Arvert, la côte sauvage est un véritable paradis pour les surfeurs. Avec ses longues étendues de sable, ses dunes et ses pinèdes, le site est parfaitement exposé à la houle et à l\’assaut des vagues de l\’Atlantique. Logée entre la Pointe Espagnole au nord et la pointe de la Coubre au sud, la côte sauvage est incontournable pour tous les amateurs de sensations fortes.",
   5
