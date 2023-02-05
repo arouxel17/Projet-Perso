@@ -62,7 +62,7 @@ class SpotsManager extends AbstractManager {
   }
 
   findHome() {
-    return this.connection.query(`SELECT nom, image FROM ${this.table}`);
+    return this.connection.query(`SELECT id, nom, image FROM ${this.table}`);
   }
 }
 
