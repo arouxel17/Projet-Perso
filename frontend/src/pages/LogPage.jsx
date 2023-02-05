@@ -25,7 +25,7 @@ function LogPage() {
         <Link to="/accueil">
           <button
             type="button"
-            className="flex flex-row bg-secondary text-black font-bold text-2xl md:text-3xl items-center px-6 py-3 rounded-xl border-2 hover:bg-primary hover:text-white"
+            className="flex flex-row bg-secondary text-black font-bold text-2xl md:text-3xl items-center px-6 py-3 rounded-xl border-2 hover:scale-125"
           >
             Se connecter
             <svg
