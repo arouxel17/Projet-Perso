@@ -94,10 +94,12 @@ export default function Home() {
           <div className="flex flex-row justify-center">
             {difficulty &&
               difficulty.map((difficulties) => (
-                <CardDifficulty
-                  key={difficulties.id}
-                  difficulties={difficulties}
-                />
+                <Link to={`/spots?difficulte=${difficulties.difficulte}`}>
+                  <CardDifficulty
+                    key={difficulties.id}
+                    difficulties={difficulties}
+                  />
+                </Link>
               ))}
           </div>
         </div>
