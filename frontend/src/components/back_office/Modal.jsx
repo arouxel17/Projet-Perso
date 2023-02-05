@@ -3,7 +3,7 @@ import apiConnexion from "@services/apiConnexion";
 
 import "@components/back_office/Modal.css";
 
-function Modal({ onClose }) {
+function Modal({ onClose, spot }) {
   const [conditions, setConditions] = useState([]);
   const [newSpots, setnewSpots] = useState({
     nom: "",
@@ -36,8 +36,18 @@ function Modal({ onClose }) {
       .catch((err) => console.error(err));
   };
 
+  const changeSpot = (id) => {
+    apiConnexion
+      .put(`/spots/${id}`, newSpots)
+      .then(() => onClose())
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     getConditions();
+    if (spot.id) {
+      setnewSpots({ ...spot });
+    }
   }, []);
 
   return (
@@ -74,6 +84,7 @@ function Modal({ onClose }) {
                     placeholder="Nom"
                     name="nom"
                     onChange={handleSpot}
+                    value={newSpots.nom}
                   />
                 </div>
                 <div className="group1">
@@ -84,6 +95,7 @@ function Modal({ onClose }) {
                     placeholder="Lieu"
                     name="lieu"
                     onChange={handleSpot}
+                    value={newSpots.lieu}
                   />
                 </div>
                 <div className="group2">
@@ -92,11 +104,12 @@ function Modal({ onClose }) {
                     className="input w-80 my-7"
                     name="difficulte"
                     onChange={handleSpot}
+                    value={newSpots.difficulte}
                   >
                     <option value="">Selectionnez une difficulté</option>
-                    <option value="debutant">Débutant</option>
-                    <option value="intermediaire">Intermédiaire</option>
-                    <option value="expert">Expert</option>
+                    <option value="Debutant">Débutant</option>
+                    <option value="Intermediaire">Intermédiaire</option>
+                    <option value="Expert">Expert</option>
                   </select>
                 </div>
                 <div className="group3">
@@ -107,6 +120,7 @@ function Modal({ onClose }) {
                     placeholder="Image"
                     name="image"
                     onChange={handleSpot}
+                    value={newSpots.image}
                   />
                 </div>
                 <div className="group4">
@@ -117,6 +131,7 @@ function Modal({ onClose }) {
                     placeholder="Description"
                     name="description"
                     onChange={handleSpot}
+                    value={newSpots.description}
                   />
                 </div>
                 <div className="group5">
@@ -125,6 +140,7 @@ function Modal({ onClose }) {
                     className="input w-80 my-7"
                     name="conditions_id"
                     onChange={handleSpot}
+                    value={newSpots.conditions_id}
                   >
                     <option value="0">
                       Selectionnez une condition moyenne
@@ -139,14 +155,28 @@ function Modal({ onClose }) {
                   </select>
                 </div>
               </div>
-              <button
-                type="button"
-                className="createbutton mt-6"
-                onClick={() => addSpot()}
-              >
-                <span />
-                Créer
-              </button>
+              <div className="flex flex-row items-center">
+                {newSpots.id && (
+                  <button
+                    type="button"
+                    className="modifbutton mt-6 mx-6"
+                    onClick={() => changeSpot(newSpots.id)}
+                  >
+                    <span />
+                    Modifier
+                  </button>
+                )}
+                {!newSpots.id && (
+                  <button
+                    type="button"
+                    className="createbutton mt-6 mx-6"
+                    onClick={addSpot}
+                  >
+                    <span />
+                    Créer
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>

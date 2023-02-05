@@ -71,10 +71,14 @@ function BackOffice() {
           >
             Ajouter
           </button>
-          {displayModal && <Modal onClose={onModalClose} />}
+          {displayModal && <Modal onClose={onModalClose} spot={displayModal} />}
         </div>
         <div className="bg-primary">
-          <InfoSpot spots={spots} deleteSpot={deleteSpot} />
+          <InfoSpot
+            spots={spots}
+            deleteSpot={deleteSpot}
+            setDisplayModal={setDisplayModal}
+          />
         </div>
       </div>
     </div>
