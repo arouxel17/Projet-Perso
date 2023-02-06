@@ -63,7 +63,7 @@ function OneSpot() {
           <img
             src={spots.image}
             alt="test"
-            className="lg:rounded-2xl w-full lg:w-8/12 shadow-xl"
+            className="lg:rounded-2xl w-full lg:w-8/12 shadow-xl mb-6"
           />
         </div>
         <div className="mb-14 md:mx-20 text-xl md:text-2xl lg:m-0 lg:w-11/12 lg:pr-20 lg:mb-0 lg:mt-10">
