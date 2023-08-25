@@ -20,11 +20,12 @@ const usersControllers = require("./controllers/usersControllers");
 
 const { hashedPassword } = require("./services/auth");
 const checkAuth = require("./middleware/auth");
+const registrerValidate = require("./middleware/register");
 
 // route public
 router.get("/users", usersControllers.read);
 router.post("/users", hashedPassword, usersControllers.add);
-router.post("/users/login", usersControllers.validateUser);
+router.post("/users/login", registrerValidate, usersControllers.validateUser);
 
 // route privée
 router.put("/users/:id", checkAuth, hashedPassword, usersControllers.edit);

@@ -34,34 +34,30 @@ const add = (req, res) => {
 };
 
 const validateUser = async (req, res) => {
-  models.users
-    .login(req.body)
-    .then(async ([user]) => {
-      if (user[0]) {
-        if (await verifyHash(user[0].hashedPassword, req.body.hashedPassword)) {
-          const myUser = { ...user[0] };
-          myUser.role = "users";
-          delete myUser.hashedPassword;
-          const token = jwt.sign(myUser, process.env.JWT_SECRET, {
-            expiresIn: "24h",
-          });
-          res
-            .status(200)
-            .cookie("access_token", token, {
-              httpOnly: true,
-            })
-            .json(myUser);
-        } else {
-          res.sendStatus(401);
-        }
+  const { email } = req.body;
+  models.users.login(email).then(async ([user]) => {
+    if (user[0]) {
+      if (await verifyHash(user[0].hashedPassword, req.body.hashedPassword)) {
+        const myUser = { ...user[0] };
+        myUser.profil = 0;
+        delete myUser.hashedPassword;
+        const token = jwt.sign(myUser, process.env.JWT_SECRET, {
+          expiresIn: "24h",
+        });
+
+        res
+          .status(201)
+          .cookie("access_token", token, {
+            httpOnly: true,
+          })
+          .json(myUser);
       } else {
         res.sendStatus(401);
       }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+    } else {
+      res.sendStatus(404);
+    }
+  });
 };
 
 const edit = (req, res) => {

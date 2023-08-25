@@ -32,10 +32,10 @@ class UsersManager extends AbstractManager {
     );
   }
 
-  login(users) {
+  login(email) {
     return this.connection.query(
       `SELECT * FROM ${this.table} WHERE email = ?`,
-      [users.email]
+      [email]
     );
   }
 
