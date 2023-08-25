@@ -16,4 +16,17 @@ router.put("/spots/:id", spotsControllers.edit);
 router.post("/spots", spotsControllers.add);
 router.delete("/spots/:id", spotsControllers.destroy);
 
+const usersControllers = require("./controllers/usersControllers");
+
+const { hashedPassword } = require("./services/auth");
+const checkAuth = require("./middleware/auth");
+
+// route public
+router.get("/users", usersControllers.read);
+router.post("/users", hashedPassword, usersControllers.add);
+router.post("/users/login", usersControllers.validateUser);
+
+// route privée
+router.put("/users/:id", checkAuth, hashedPassword, usersControllers.edit);
+
 module.exports = router;
