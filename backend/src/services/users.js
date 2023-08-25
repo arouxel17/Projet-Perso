@@ -5,7 +5,7 @@ const validate = (data) => {
     name: Joi.string().min(3).max(30).required(),
     firstname: Joi.string().min(3).max(30).required(),
     email: Joi.string().email().required(),
-    hashedPassword: Joi.string().min(8).max(255).required(),
+    hashedPassword: Joi.string().min(6).max(255).required(),
     role: Joi.string().valid("admin", "user").default("user"),
   });
 
