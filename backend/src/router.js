@@ -24,6 +24,7 @@ const registrerValidate = require("./middleware/register");
 
 // route public
 router.get("/users", usersControllers.read);
+router.get("/users/:id", usersControllers.readOne);
 router.post("/users", hashedPassword, usersControllers.add);
 router.post("/users/login", registrerValidate, usersControllers.validateUser);
 

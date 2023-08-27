@@ -15,6 +15,21 @@ const read = (req, res) => {
     });
 };
 
+const readOne = (req, res) => {
+  models.users
+    .find(req.params.id)
+    .then(([result]) => {
+      if (result) {
+        res.status(200).send(result);
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch(() => {
+      res.sendStatus(500);
+    });
+};
+
 const add = (req, res) => {
   const users = req.body;
   const error = validate(users);
@@ -105,6 +120,7 @@ const edit = (req, res) => {
 
 module.exports = {
   read,
+  readOne,
   add,
   validateUser,
   edit,
