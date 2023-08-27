@@ -66,7 +66,7 @@ function BackOffice() {
           </h1>
           <button
             type="button"
-            className="bg-secondary text-black text-2xl border-2 border-white rounded-xl px-6 py-3 mx-3 hover:bg-white hover:text-black font-bold"
+            className="bg-secondary text-black font-bold text-2xl md:text-3xl items-center px-6 py-3 rounded-xl border-b-4 hover:scale-125"
             onClick={() => setDisplayModal(true)}
           >
             Ajouter

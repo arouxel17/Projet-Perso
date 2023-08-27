@@ -88,7 +88,7 @@ function ProfilPage() {
       </div>
       <NavComputer />
       <div className="mb-36">
-        <h1 className="text-3xl font-bold text-center text-primary underline">
+        <h1 className="text-3xl font-bold text-center text-primary underline lg:mt-10">
           Ton profil
         </h1>
         <div className="flex flex-col lg:flex-row items-center justify-center mt-2">
@@ -112,7 +112,7 @@ function ProfilPage() {
               className="input w-80 my-7 md:text-2xl"
             />
           </div>
-          <div className="flex flex-col justify-center border border-4 border-secondary rounded-xl p-5 lg:m-10">
+          <div className="flex flex-col justify-center border border-4 border-secondary rounded-xl p-5 lg:m-10 mt-8 md:mt-14">
             <h2 className="text-xl font-bold text-center text-secondary mt-3">
               Changer mon mot de passe
             </h2>
@@ -137,7 +137,7 @@ function ProfilPage() {
               className="flex flex-row justify-center bg-secondary text-black font-bold text-xl md:text-2xl items-center mx-14 rounded-xl border-b-4 hover:scale-125"
               onClick={handleChangePassword}
             >
-              <span className="ml-2">Valider</span>
+              <span className="m-2">Valider</span>
             </button>
           </div>
         </div>
