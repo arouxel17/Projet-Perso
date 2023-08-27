@@ -10,6 +10,8 @@ import logo from "../assets/wave2.png";
 function ProfilPage() {
   const { user } = useAuth();
   const [userInfos, setUserInfos] = useState({});
+  const [newHashedPassword, setNewHashedPassword] = useState("");
+  const [confirmNewHashedPassword, setConfirmNewHashedPassword] = useState("");
 
   useEffect(() => {
     if (user) {
@@ -21,6 +23,22 @@ function ProfilPage() {
         .catch((err) => console.error(err));
     }
   }, [user]);
+
+  const handleChangePassword = () => {
+    if (newHashedPassword === confirmNewHashedPassword) {
+      apiConnexion
+        .put(`/users/${user.id}`, {
+          hashedPassword: newHashedPassword,
+        })
+        .then(() => {
+          setNewHashedPassword("");
+          setConfirmNewHashedPassword("");
+        })
+        .catch((err) => console.error(err));
+    } else {
+      console.error("Les mots de passe ne correspondent pas");
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -100,24 +118,24 @@ function ProfilPage() {
             </h2>
             <input
               type="password"
-              // value={newHashedPassword}
-              // onChange={(e) => setNewHashedPassword(e.target.value)}
+              value={newHashedPassword}
+              onChange={(e) => setNewHashedPassword(e.target.value)}
               required
               placeholder="Nouveau mot de passe"
               className="input w-80 my-7 md:text-2xl"
             />
             <input
               type="password"
-              // value={confirmNewHashedPassword}
-              // onChange={(e) => setConfirmNewHashedPassword(e.target.value)}
+              value={confirmNewHashedPassword}
+              onChange={(e) => setConfirmNewHashedPassword(e.target.value)}
               required
-              placeholder="Confirmer nouveau mot de passe.."
+              placeholder="Confirmer mot de passe.."
               className="input w-80 my-7 md:text-2xl"
             />
             <button
               type="button"
               className="flex flex-row justify-center bg-secondary text-black font-bold text-xl md:text-2xl items-center mx-14 rounded-xl border-b-4 hover:scale-125"
-              // onClick={handleChangePassword}
+              onClick={handleChangePassword}
             >
               <span className="ml-2">Valider</span>
             </button>
@@ -130,22 +148,3 @@ function ProfilPage() {
 }
 
 export default ProfilPage;
-
-// const [newHashedPassword, setNewHashedPassword] = useState("");
-// const [confirmNewHashedPassword, setConfirmNewHashedPassword] = useState("");
-
-// const handleChangePassword = () => {
-//     apiConnexion
-//         .put("/users/:id", {
-//             name,
-//             firstname,
-//             email,
-//             hashedPassword,
-//             newHashedPassword,
-//             confirmNewHashedPassword,
-//         })
-//         .then((res) => {
-//             console.log(res);
-//         })
-//         .catch((err) => console.error(err));
-// };
