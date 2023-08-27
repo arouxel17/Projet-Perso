@@ -16,7 +16,6 @@ function ModalInscription({ onClose }) {
         hashedPassword,
         role: "user",
       });
-
       onClose();
     } catch (error) {
       console.error(error);

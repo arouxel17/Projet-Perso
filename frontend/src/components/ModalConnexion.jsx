@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "@assets/wave2.png";
 import apiConnexion from "@services/apiConnexion";
+import { useAuth } from "@services/AuthContext";
 
 function ModalConnexion() {
+  const { setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [hashedPassword, setHashedPassword] = useState("");
   const navigate = useNavigate();
@@ -16,6 +18,7 @@ function ModalConnexion() {
       });
       if (response.status === 201) {
         const user = response.data;
+        setUser({ id: user.id, role: user.role });
         if (user.role === "admin") {
           navigate("/dashboard");
         } else if (user.role === "user") navigate("/accueil");
