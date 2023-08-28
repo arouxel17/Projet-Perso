@@ -117,7 +117,6 @@ function Spots() {
               </svg>
             </button>
           </div>
-          {/* //  text-2xl md:text-3xl items-center px-6 py-3 rounded-xl border-b-4 hover:scale-125 */}
           {showMenu && (
             <div className="bg-secondary rounded-xl border-b-4 p-6 pl-10 flex flex-col shadow-2xl absolute right-8 mt-2 md:p-20 md:text-2xl">
               <button
