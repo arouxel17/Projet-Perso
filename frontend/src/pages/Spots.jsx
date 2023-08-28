@@ -118,7 +118,7 @@ function Spots() {
             </button>
           </div>
           {showMenu && (
-            <div className="bg-secondary rounded-xl p-6 pl-10 flex flex-col shadow-2xl absolute right-8 mt-2 md:p-20 md:text-2xl">
+            <div className="bg-secondary rounded-xl border-b-4 p-6 pl-10 flex flex-col shadow-2xl absolute right-8 mt-2 md:p-20 md:text-2xl">
               <button
                 type="button"
                 className="my-3 hover:scale-125 font-bold hover:text-primary text-right"

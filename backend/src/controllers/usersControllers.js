@@ -49,10 +49,10 @@ const add = (req, res) => {
 };
 
 const validateUser = async (req, res) => {
-  const { email } = req.body;
+  const { email, hashedPassword } = req.body;
   models.users.login(email).then(async ([user]) => {
     if (user[0]) {
-      if (await verifyHash(user[0].hashedPassword, req.body.hashedPassword)) {
+      if (await verifyHash(user[0].hashedPassword, hashedPassword)) {
         const myUser = { ...user[0] };
         myUser.profil = 0;
         delete myUser.hashedPassword;

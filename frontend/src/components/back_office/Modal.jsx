@@ -73,7 +73,9 @@ function Modal({ onClose, spot }) {
                 </svg>
               </button>
               <h1 className="text-2xl text-center w-96">
-                Création d'un nouveau spot
+                {newSpots.id
+                  ? "Modifier ce spot"
+                  : "Création d'un nouveau spot"}
               </h1>
               <div>
                 <div className="group">
