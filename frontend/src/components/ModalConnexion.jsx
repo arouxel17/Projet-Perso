@@ -4,7 +4,7 @@ import Logo from "@assets/wave2.png";
 import apiConnexion from "@services/apiConnexion";
 import { useAuth } from "@services/AuthContext";
 
-function ModalConnexion() {
+function ModalConnexion({ errorLogin }) {
   const { setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [hashedPassword, setHashedPassword] = useState("");
@@ -25,6 +25,7 @@ function ModalConnexion() {
       }
     } catch (error) {
       console.error(error);
+      errorLogin();
     }
   };
 

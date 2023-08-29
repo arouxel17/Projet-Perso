@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiConnexion from "@services/apiConnexion";
 
-function ModalInscription({ onClose }) {
+function ModalInscription({ onClose, subscribe }) {
   const [name, setName] = useState("");
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +16,7 @@ function ModalInscription({ onClose }) {
         hashedPassword,
         role: "user",
       });
+      subscribe();
       onClose();
     } catch (error) {
       console.error(error);
