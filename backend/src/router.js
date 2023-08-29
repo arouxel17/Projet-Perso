@@ -16,4 +16,16 @@ router.put("/spots/:id", spotsControllers.edit);
 router.post("/spots", spotsControllers.add);
 router.delete("/spots/:id", spotsControllers.destroy);
 
+const usersControllers = require("./controllers/usersControllers");
+
+const { hashedPassword } = require("./services/auth");
+// const checkAuth = require("./middleware/auth");
+const registrerValidate = require("./middleware/register");
+
+router.get("/users", usersControllers.read);
+router.get("/users/:id", usersControllers.readOne);
+router.post("/users", hashedPassword, usersControllers.add);
+router.post("/users/login", registrerValidate, usersControllers.validateUser);
+router.put("/users/:id", hashedPassword, usersControllers.edit);
+
 module.exports = router;

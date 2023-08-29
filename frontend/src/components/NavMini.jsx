@@ -43,7 +43,7 @@ function NavMini() {
           />
         </svg>
       </Link>
-      <Link to="/">
+      <Link to="/profil">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="white"

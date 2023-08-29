@@ -1,8 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "@assets/wave2.png";
+import apiConnexion from "@services/apiConnexion";
+import { useAuth } from "@services/AuthContext";
 
-function ModalConnexion() {
+function ModalConnexion({ errorLogin }) {
+  const { setUser } = useAuth();
+  const [email, setEmail] = useState("");
+  const [hashedPassword, setHashedPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    try {
+      const response = await apiConnexion.post("/users/login", {
+        email,
+        hashedPassword,
+      });
+      if (response.status === 201) {
+        const user = response.data;
+        setUser({ id: user.id, role: user.role });
+        if (user.role === "admin") {
+          navigate("/dashboard");
+        } else if (user.role === "user") navigate("/accueil");
+      }
+    } catch (error) {
+      console.error(error);
+      errorLogin();
+    }
+  };
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 transition-opacity">
       <div className="fixed inset-0 z-10 overflow-y-auto">
@@ -19,32 +45,26 @@ function ModalConnexion() {
                   required=""
                   placeholder="Email.."
                   className="input w-80 my-7 md:mt-14 md:text-2xl"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
-                  type="value"
+                  type="password"
                   required=""
                   placeholder="Mot de passe.."
                   className="input w-80 my-7 md:mb-14 md:text-2xl"
+                  value={hashedPassword}
+                  onChange={(e) => setHashedPassword(e.target.value)}
                 />
               </div>
-              <div className="flex flex-row">
-                <Link to="/dashboard">
-                  <button
-                    type="button"
-                    className="bg-primary text-white py-4 px-6 hover:scale-125 rounded-xl my-4 mx-5 shadow-2xl border-b-4 border-black md:text-2xl"
-                  >
-                    Admin
-                  </button>
-                </Link>
-                <Link to="/accueil">
-                  <button
-                    type="button"
-                    className="bg-secondary py-4 px-6 hover:scale-125 rounded-xl my-4 mx-5 shadow-2xl border-b-4 md:text-2xl"
-                  >
-                    Valider
-                  </button>
-                </Link>
-              </div>
+
+              <button
+                type="button"
+                className="bg-secondary py-4 px-6 hover:scale-125 rounded-xl my-4 mx-5 shadow-2xl border-b-4 md:text-2xl"
+                onClick={handleSubmit}
+              >
+                Valider
+              </button>
             </div>
           </div>
         </div>

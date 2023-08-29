@@ -96,7 +96,7 @@ VALUES
 (
   "Les Grenettes", 
   "Sainte-Marie-De-Ré",
-  "Debutant",
+  "Débutant",
   "https://images.pexels.com/photos/416726/pexels-photo-416726.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "A proximité de La Rochelle, le spot des Grenettes, sur le hameau de La Noue à l\’ouest de Sainte-Marie-de-Ré, est particulièrement fréquenté. Face aux falaises et à la petite plage accessible lorsque la marée l\’accorde, les vagues généralement molles et parfois creuses peuvent atteindre 2,50 mètres de hauteur. Un spot qui intéresse également par la qualité de l\’eau mais qui exige une certaine dextérité, rochers et caillasses pouvant représenter un danger.",
   1
@@ -128,7 +128,7 @@ VALUES
 (
   "Vert Bois", 
   "Saint-Trojan",
-  "Debutant",
+  "Débutant",
   "https://images.pexels.com/photos/1654489/pexels-photo-1654489.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Dans le sud-ouest de l\’île d\’Oléron, au pied de la forêt de Saint-Trojan installée au XIXe siècle pour contenir l\’avancée des dunes, la petite commune du Grand-Village-Plage voit elle aussi défiler les surfeurs. Entre Vert Bois et la plage de Grand-Village, les amateurs de sensations fortes peuvent même venir se frotter à la vague mythique des Allassins. Un spot réputé et incontournable qui attire aussi les passionnés de char à voile et de skimboard.",
   2
@@ -152,8 +152,28 @@ VALUES
 (
   "Les Huttes", 
   "Saint-Denis-d\’Oléron",
-  "Debutant",
+  "Débutant",
   "https://images.pexels.com/photos/1324352/pexels-photo-1324352.jpeg?auto=compress&cs=tinysrgb&w=1600",
   "Avec ses plages de sable fin, sa base nautique et son port de plaisance, le site attire les touristes mais également les surfeurs, qui iront chercher la vague vers le spot des Huttes, un beach break parfaitement exposé à la houle. Le site est également fréquenté par les amateurs de plongée, de voile, de stand up paddle et de ski nautique.",
   3
 );
+
+
+-- -----------------------------------------------------
+-- Data for table `surfcp`.`users`
+-- -----------------------------------------------------
+
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL,
+  firstname VARCHAR(45) NOT NULL,
+  email VARCHAR(45) NOT NULL,
+  hashedPassword VARCHAR(255) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  role VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=INNODB;
+
+INSERT INTO users (name, firstname, email, hashedPassword, role)
+VALUES ('admin', 'adminn', 'admin@wave.com', '$argon2id$v=19$m=65536,t=5,p=1$0U9URBuiGNuszyjBzj1TZg$pcWO0x68ABHV5a5SK27NebvMAxote6/Nsku18Majvc8', 'admin'),
+('Dupont', 'Paul', 'jeandupont@wave.com', '$argon2id$v=19$m=65536,t=5,p=1$Ae7m81OIyTI1rPhKLd9ywQ$53juZsGiNgSYIpErG33Elt3+rYGpYxo6bnUlF91UHBw', 'user');

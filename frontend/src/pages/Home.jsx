@@ -8,7 +8,6 @@ import Footer from "@components/FooterComputer";
 import CardDifficulty from "@components/CardDifficulty";
 import Card from "@components/Card";
 import logo from "../assets/wave2.png";
-import avatar from "../assets/avatar.png";
 
 export default function Home() {
   const [dataSpot, setDataSpot] = useState([]);
@@ -53,6 +52,12 @@ export default function Home() {
     getInput();
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  };
+
   return (
     <div className="flex flex-col mb-32 md:mb-36">
       <Helmet>
@@ -67,8 +72,30 @@ export default function Home() {
       <div className="flex flex-row justify-center lg:invisible">
         <img src={logo} className="w-32 mr-20 md:w-44 md:mr-60" alt="logo2" />
         <div className="flex flex-row items-center pr-6">
-          <h1 className="mr-4 md:text-3xl">Hello Julien !</h1>
-          <img src={avatar} className="w-12 h-12" alt="avatar" />
+          <button
+            type="button"
+            className="flex flex-row bg-secondary text-black font-bold text-2xl md:text-3xl items-center px-6 py-3 rounded-xl border-b-4 hover:scale-125 ml-20"
+            onClick={handleLogout}
+          >
+            <svg
+              fill="#000000"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20px"
+              height="20px"
+              viewBox="0 0 52 52"
+              enableBackground="new 0 0 52 52"
+            >
+              <path
+                d="M21,48.5v-3c0-0.8-0.7-1.5-1.5-1.5h-10C8.7,44,8,43.3,8,42.5v-33C8,8.7,8.7,8,9.5,8h10
+                C20.3,8,21,7.3,21,6.5v-3C21,2.7,20.3,2,19.5,2H6C3.8,2,2,3.8,2,6v40c0,2.2,1.8,4,4,4h13.5C20.3,50,21,49.3,21,48.5z"
+              />
+              <path
+                d="M49.6,27c0.6-0.6,0.6-1.5,0-2.1L36.1,11.4c-0.6-0.6-1.5-0.6-2.1,0l-2.1,2.1c-0.6,0.6-0.6,1.5,0,2.1l5.6,5.6
+                c0.6,0.6,0.2,1.7-0.7,1.7H15.5c-0.8,0-1.5,0.6-1.5,1.4v3c0,0.8,0.7,1.6,1.5,1.6h21.2c0.9,0,1.3,1.1,0.7,1.7l-5.6,5.6
+                c-0.6,0.6-0.6,1.5,0,2.1l2.1,2.1c0.6,0.6,1.5,0.6,2.1,0L49.6,27z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
       <NavComputer />
@@ -135,9 +162,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mb-14 md:text-2xl md:mx-20 lg:mx-24 md:mb-20 md:mb-32">
+        <div className="mb-14 md:text-2xl md:mx-20 lg:mx-24 md:mb-20 md:mb-32 ">
           <h2 className="font-bold mb-5">Difficultées</h2>
-          <div className="flex flex-row justify-center">
+          <div className="flex flex-row justify-center ">
             {difficulty &&
               difficulty.map((difficulties) => (
                 <Link to={`/spots?difficulte=${difficulties.difficulte}`}>

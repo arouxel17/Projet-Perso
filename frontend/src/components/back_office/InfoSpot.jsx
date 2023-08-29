@@ -27,7 +27,7 @@ function InfoSpot({ spots, deleteSpot, setDisplayModal }) {
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
-                      stroke="currentColor"
+                      stroke="orange"
                       className="w-8 h-8 m-auto"
                     >
                       <path
@@ -45,7 +45,7 @@ function InfoSpot({ spots, deleteSpot, setDisplayModal }) {
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
-                      stroke="currentColor"
+                      stroke="darkred"
                       className="w-8 h-8"
                     >
                       <path
