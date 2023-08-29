@@ -4,13 +4,35 @@ import ModalConnexion from "@components/ModalConnexion";
 import ModalInscription from "@components/ModalInscription";
 import Logo from "@assets/wave.png";
 import VideoBack from "@assets/bgsurf.mp4";
+import { ToastContainer, toast } from "react-toastify";
 import logo from "../assets/wave2.png";
+import "react-toastify/dist/ReactToastify.css";
 
 import "@pages/LogPage.css";
 
 function LogPage() {
   const [displayModal, setDisplayModal] = useState(false);
   const [displayModalInscription, setDisplayModalInscription] = useState(false);
+
+  const subscribe = () => {
+    toast.success("Inscription réussie ! Vous pouvez vous connecter !", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+    });
+  };
+
+  const errorLogin = () => {
+    toast.error("Email ou mot de passe incorrect ! Veuillez réessayer !", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+    });
+  };
 
   return (
     <div className="">
@@ -46,7 +68,7 @@ function LogPage() {
               />
             </svg>
           </button>
-          {displayModal && <ModalConnexion />}
+          {displayModal && <ModalConnexion errorLogin={errorLogin} />}
           <button
             type="button"
             className="flex flex-row justify-center text-secondary font-bold text-2xl md:text-3xl items-center px-6 py-3 hover:scale-125"
@@ -57,10 +79,23 @@ function LogPage() {
           {displayModalInscription && (
             <ModalInscription
               onClose={() => setDisplayModalInscription(false)}
+              subscribe={subscribe}
             />
           )}
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }

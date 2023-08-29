@@ -19,20 +19,8 @@ const hashedPassword = (req, res, next) => {
     });
 };
 
-const hashedNewPassword = (req, res, next) => {
-  argon2
-    .hash(req.body.newPassword, hashingOptions)
-    .then((hash) => {
-      req.body.newPassword = hash;
-      next();
-    })
-    .catch(() => {
-      res.status(500).json({ error: "erreur serveur" });
-    });
-};
-
 const verifyHash = (hashFromDB, hashedPasswordSend) => {
   return argon2.verify(hashFromDB, hashedPasswordSend, hashingOptions);
 };
 
-module.exports = { hashedPassword, verifyHash, hashedNewPassword };
+module.exports = { hashedPassword, verifyHash };

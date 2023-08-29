@@ -5,13 +5,35 @@ import NavComputer from "@components/NavComputer";
 import Footer from "@components/FooterComputer";
 import apiConnexion from "@services/apiConnexion";
 import { useAuth } from "@services/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
 import logo from "../assets/wave2.png";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProfilPage() {
   const { user } = useAuth();
   const [userInfos, setUserInfos] = useState({});
   const [newHashedPassword, setNewHashedPassword] = useState("");
   const [confirmNewHashedPassword, setConfirmNewHashedPassword] = useState("");
+
+  const changePassword = () => {
+    toast.success("Votre mot de passe a été changé !", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+    });
+  };
+
+  const failPassword = () => {
+    toast.error("Les mots de passe ne correspondent pas !", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+    });
+  };
 
   useEffect(() => {
     if (user) {
@@ -33,8 +55,12 @@ function ProfilPage() {
         .then(() => {
           setNewHashedPassword("");
           setConfirmNewHashedPassword("");
+          changePassword();
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          failPassword();
+          console.error(err);
+        });
     } else {
       console.error("Les mots de passe ne correspondent pas");
     }
@@ -143,6 +169,18 @@ function ProfilPage() {
         </div>
       </div>
       <Footer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }
