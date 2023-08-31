@@ -122,7 +122,7 @@ function Spots() {
               <button
                 type="button"
                 className="my-3 hover:scale-125 font-bold hover:text-primary text-right"
-                onClick={() => handleCategory("Debutant")}
+                onClick={() => handleCategory("Débutant")}
               >
                 Débutant
               </button>
