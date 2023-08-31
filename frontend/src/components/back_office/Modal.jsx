@@ -109,7 +109,7 @@ function Modal({ onClose, spot }) {
                     value={newSpots.difficulte}
                   >
                     <option value="">Selectionnez une difficulté</option>
-                    <option value="Debutant">Débutant</option>
+                    <option value="Débutant">Débutant</option>
                     <option value="Intermediaire">Intermédiaire</option>
                     <option value="Expert">Expert</option>
                   </select>
